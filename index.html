@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Does the Dude Abide?</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+</head>
+<body>
+
+<div class = "container-fluid alleyBackground">
+	<div class="row">
+		<div class ="col-md-12">
+			<h1>Do You Know the Dude?</h1>
+			<h2>Don't worry if you don't. Take it easy, man. </h2>
+		</div>
+	</div>
+
+	<div class="row start">
+		<div class ="col-md-12">
+			<button type="button" class="btn btn-default" id="start">Start Game</button>
+		</div>
+	</div>
+
+
+
+	<div class="questions" id="q1"> 
+		<h3> What does the Dude drink? </h1>
+		<button type="button" class="btn btn-default" id="wrong">Jack + Coke</button>
+		<button type="button" class="btn btn-default" id="correct">White Russian</button>
+		<button type="button" class="btn btn-default" id="wrong">7 + 7</button>
+		<button type="button" class="btn btn-default" id="wrong">Martini</button>
+	</div>
+	
+	<div class="questions" id="q2"> 
+		<h3> What is the name of Uli + the Nihlists band? </h1>
+		<button type="button" class="btn btn-default" id="correct">Autobahn</button>
+		<button type="button" class="btn btn-default" id="wrong">Blitz Kreig</button>
+		<button type="button" class="btn btn-default" id="wrong">The Berlin 8</button>
+		<button type="button" class="btn btn-default" id="wrong">Sauerkraut Soup</button>
+	</div>
+	
+	<div class="questions" id="q3"> 
+		<h3>What kind of rug really tied the Dude’s room together?</h1>
+		<button type="button" class="btn btn-default" id="wrong">Modern</button>
+		<button type="button" class="btn btn-default" id="wrong">Persian</button>
+		<button type="button" class="btn btn-default" id="wrong">White</button>
+		<button type="button" class="btn btn-default" id="correct">Oriental</button>
+	</div>
+
+	<div class="questions" id="q4"> 
+		<h3>  What’s the only form of ID the Dude carries on him?</h1>
+		<button type="button" class="btn btn-default" id="wrong">A driver's license</button>
+		<button type="button" class="btn btn-default" id="correct">A Ralph's card</button>
+		<button type="button" class="btn btn-default" id="wrong">A social secutiry card</button>
+		<button type="button" class="btn btn-default" id="wrong">A school ID</button>
+	</div>
+
+	<div class="questions" id="q5"> 
+		<h3> Who directed the Big Lebowski? </h1>
+		<button type="button" class="btn btn-default" id="correct">The Cohen Brothers</button>
+		<button type="button" class="btn btn-default" id="wrong">Danny DeVito</button>
+		<button type="button" class="btn btn-default" id="wrong">John Hughes</button>
+		<button type="button" class="btn btn-default" id="wrong">John Landis</button>
+	</div>
+
+	<div class="questions" id="q6"> 
+		<h3> Do you ever see the Dude actually bowl? </h1>
+		<button type="button" class="btn btn-default" id="wrong">Yes</button>
+		<button type="button" class="btn btn-default" id="correct">No</button>
+	</div>
+
+	<div class="questions" id="q7"> 
+		<h3> The Dude was a roadie for which band? </h1>
+		<button type="button" class="btn btn-default" id="wrong">Jane's Addiction</button>
+		<button type="button" class="btn btn-default" id="correct">Metallica</button>
+		<button type="button" class="btn btn-default" id="wrong">The Grateful Dead</button>
+		<button type="button" class="btn btn-default" id="wrong">Ozzy Osbourne</button>
+	</div>
+
+	<div class="questions" id="q8"> 
+		<h3> How long did Jesus spend in Chino? </h1>
+		<button type="button" class="btn btn-default" id="wrong">1 year</button>
+		<button type="button" class="btn btn-default" id="wrong">1 month</button>
+		<button type="button" class="btn btn-default" id="wrong">6 years</button>
+		<button type="button" class="btn btn-default" id="correct">6 months</button>
+	</div>
+
+	<div class="questions" id="q9"> 
+		<h3>  Which band does the Dude “f^%*ing hate”? </h1>
+		<button type="button" class="btn btn-default" id="wrong">Creedance Clearwater Revival</button>
+		<button type="button" class="btn btn-default" id="wrong">The Beach Boys</button>
+		<button type="button" class="btn btn-default" id="correct">The Eagles</button>
+		<button type="button" class="btn btn-default" id="wrong">Pink Floyd</button>
+	</div>
+
+	<div class="questions" id="q10"> 
+		<h3>Does the Dude Abide?</h1>
+		<ul>
+			<li><button type="button" class="btn btn-default" id="correct">Yes</button></li>
+			<li><button type="button" class="btn btn-default" id="wrong">No</button></li>
+			<li><button type="button" class="btn btn-default" id="wrong">Maybe</button></li>
+		</ul>
+	</div>
+
+	<div class="gameOver" id ="gameOver">
+		<h3>Do you know the Dude?</h3>
+		<div id="wins"></div>
+		<div id="losses"></div>
+
+	</div>
+</div>
+
+
+
+</body>
+<script type='text/javascript' src='https://code.jquery.com/jquery-2.2.0.min.js'></script>
+<script src="assets/javascript/app.js"></script>
+
+</html>

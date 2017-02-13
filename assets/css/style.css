@@ -1,0 +1,23 @@
+.alleyBackground {
+	background-image: url(../images/bowlingAlley.jpg);
+	background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height:1100px;
+}
+
+h1 {
+	text-align: center;
+	color: white;
+}
+
+
+h2 {
+	text-align: center;
+	color: white;
+}
+
+.start {
+	text-align: center;
+}
