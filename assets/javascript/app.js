@@ -11,7 +11,7 @@ var unanswered = 0;
 //FUNCTIONS + CONDITIONAL STATEMENTS
 //========================================================================
 
-//Shows and Hides Questions
+// Shows and Hides Questions
 $("#q1").hide();
 $("#q2").hide();
 $("#q3").hide();
