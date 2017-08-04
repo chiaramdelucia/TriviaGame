@@ -1,11 +1,51 @@
+let q = [1,2,3];
+
+
+q.forEach(function(element){
+	setTimeout(function(){
+		console.log(element)
+	}, 1000*5)
+})
+
+var display = q.reduce(function(){
+	setTimeout(function(){
+		for(let i=0;i<q.length;i++){
+			console.log(i)
+		}
+	}, 1000 * 10)}, 0);
+
+var timer = setTimeout(q.reduce(function(){
+	for(let i = 0; i < q.length; i++){
+
+	}
+	}), 1000 *5);
+function qTimed(){
+	for (let i = 0; i <= q.length; i++){
+		setInterval(function(){console.log(q[i])}, 1000 * 10);
+	}
+
+};
+
+function qTimer(){
+	setTimeout(function(){
+		for (var i = 0; i <= q.length; i++) {
+			console.log(q[i])
+		}
+	}, 1000*5)
+}
+
+
+
+
+
+
+
 //GLOBAL VARIABLES
 //========================================================================
 
 var correct = 0;
 var wrong = 0;
 var unanswered = 0;
-
-
 
 
 //FUNCTIONS + CONDITIONAL STATEMENTS
@@ -23,6 +63,7 @@ $("#q8").hide();
 $("#q9").hide();
 $("#q10").hide();
 $("#gameOver").hide();
+
 
 function startGame(){
 	
