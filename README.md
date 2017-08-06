@@ -13,7 +13,7 @@ To enforce foundational knowledge of plain, front-end JavaScript and understand 
 - [x] Append trivia questions to the HTML
 - [x] Set a timer on how long the user has to answer the question
 - [x] Display the correct answer
-- [ ] Use Fisher-Yates shuffle algorithm for moving through questions
+- [x] Use Fisher-Yates shuffle algorithm for moving through questions
 - [ ] Create buttons on answer options
 - [ ] Add gifs to answer display
 - [ ] Keep track of correctly and incorrectly answered questions
