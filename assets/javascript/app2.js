@@ -18,22 +18,18 @@ var questionBank =[
 
 
 //global variables
-let count = 5,
+let count = 15,
 	trivia = 3,
 	correct = 0,
-	wrong = 0,
-	randomQs,
-	q,
-	options,
-	answerIndex,
-	answer;
+	wrong = 0;
 
 //HTML divs
 questionDiv = document.getElementById('questionDiv');
 optionsDiv = document.getElementById('optionDiv');
-correctAnswer = document.getElementById('answer')
+correctAnswer = document.getElementById('answer');
 clock = document.getElementById('timer');
 replay = document.getElementById('replay');
+
 
 //Fisher-Yates shuffle
 Array.prototype.shuffle = function(){
@@ -45,36 +41,60 @@ Array.prototype.shuffle = function(){
         this[i] = temp;
     }
 	return this;
-
-}
-
-function randomize(){
-	let randomQs = questionBank.shuffle().slice(0),
-		q = randomQs[0].question,
-		options = randomQs[0].options,
-		answerIndex = randomQs[0].answer,
-		answer = options[answerIndex];
 }
 
 function gamePlay(){
 	if (trivia === 0){
 		gameOver();
 	}else{
-		randomize();
 		displayQuestion();
 		counter = setInterval(timer, 1000);
 		timer();
 		trivia --;
+		checkAnswer();
+		
 	}
 }
 
 function displayQuestion(){
-		questionDiv.innerHTML = q;
-		for(let b = 0; b<options.length; b++){
-			let btn = document.createElement('BUTTON');
+	//use the fisher-yates protoype function here
+	let randomQs = questionBank.shuffle().splice(0,1);
+		q = randomQs[0].question,
+		options = randomQs[0].options,
+		answerIndex = randomQs[0].answer,
+		answer = options[answerIndex];
+
+	questionDiv.innerHTML = q;
+
+	for(let b = 0; b<options.length; b++){
+		let btn = document.createElement('button');
+			btn.setAttribute('class', 'button');
+			btn.setAttribute('id', b)
 			btn.innerHTML = options[b];
 			optionsDiv.appendChild(btn);
-		}		
+	}	
+}
+
+function checkAnswer(){	
+
+	buttons = document.querySelectorAll('.button')
+	console.log(buttons);
+	
+
+	for(var c = 0; c<buttons.length; c++){
+		let buttonId = buttons[c].id;
+		buttons[c].addEventListener('click', function(event){
+			if(buttonId == answerIndex){
+				console.log('correct');
+				correct++;
+				reset();
+			}else{
+				console.log('wrong');
+				wrong++;
+				reset();
+			}
+		})
+	}
 }
 
 function timer (){
@@ -84,21 +104,21 @@ function timer (){
 		reset();
 	}else{
 		count--;
-		clock.innerHTML = `Time Left: ${count} seconds`; 
+		clock.innerHTML = `Time Left: ${count} seconds`;
 	}		
 }
 
 function reset(){
-	count = 5;
+	count = 15;
 	clearInterval(counter);
 	setTimeout(clearBoard, 1000*5);
-	setTimeout(gamePlay, 1000 * 5);
+	setTimeout(gamePlay, 1000 * 5);	
 }
 
 function clearBoard(){
 	questionDiv.innerHTML = '';
 	optionsDiv.innerHTML = '';
-	correctAnswer.innerHTML = ''
+	correctAnswer.innerHTML = '';
 }
 
 function gameOver(){
@@ -109,7 +129,6 @@ function gameOver(){
 		trivia = 3;
 		displayQuestion();
 	});
-	console.log('counter, ' + counter);
-	console.log(questionBank);
-
+	console.log(wrong);
+	console.log(correct);
 }
