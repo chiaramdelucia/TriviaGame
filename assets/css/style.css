@@ -41,7 +41,7 @@ h2 {
 	position: relative;
 }
 
-.questions{
+#questionDiv{
 	text-align: center;
 	padding: 3%;
 	z-index: 2;
