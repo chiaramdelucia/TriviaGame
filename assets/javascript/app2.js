@@ -21,7 +21,12 @@ var questionBank =[
 let count = 5,
 	trivia = 3,
 	correct = 0,
-	wrong = 0;
+	wrong = 0,
+	randomQs,
+	q,
+	options,
+	answerIndex,
+	answer;
 
 //HTML divs
 questionDiv = document.getElementById('questionDiv');
@@ -39,49 +44,61 @@ Array.prototype.shuffle = function(){
         this[j] = this[i];
         this[i] = temp;
     }
-    console.log("this: " + this);
 	return this;
 
 }
 
+function randomize(){
+	let randomQs = questionBank.shuffle().slice(0),
+		q = randomQs[0].question,
+		options = randomQs[0].options,
+		answerIndex = randomQs[0].answer,
+		answer = options[answerIndex];
+}
 
-function displayQuestion(){
-
-	let randomQs = questionBank.shuffle().slice(0);
-	console.log(randomQs);
-
-	if (trivia ==== 0){
+function gamePlay(){
+	if (trivia === 0){
 		gameOver();
 	}else{
-		trivia --;
-		let q = randomQs[0].question;
-		let options = randomQs[0].options;
-		let answerIndex = randomQs[0].answer;
-		let answer = options[answerIndex]
-
-		questionDiv.innerHTML = q;
-		optionsDiv.innerHTML = options;
-
+		randomize();
+		displayQuestion();
 		counter = setInterval(timer, 1000);
-		function timer (){
-			if (count<=0){
-				clock.innerHTML = 'Time is Up'
-				correctAnswer.innerHTML = `The correct answer is: ${answer}`
-				reset();
-			}else{
-				count--;
-				clock.innerHTML = `Time Left: ${count} seconds`; 
-			}		
-		}
-	}	
+		timer();
+		trivia --;
+	}
+}
 
+function displayQuestion(){
+		questionDiv.innerHTML = q;
+		for(let b = 0; b<options.length; b++){
+			let btn = document.createElement('BUTTON');
+			btn.innerHTML = options[b];
+			optionsDiv.appendChild(btn);
+		}		
+}
+
+function timer (){
+	if (count<=0){
+		clock.innerHTML = 'Time is Up'
+		correctAnswer.innerHTML = `The correct answer is: ${answer}`
+		reset();
+	}else{
+		count--;
+		clock.innerHTML = `Time Left: ${count} seconds`; 
+	}		
 }
 
 function reset(){
 	count = 5;
 	clearInterval(counter);
 	setTimeout(clearBoard, 1000*5);
-	setTimeout(displayQuestion, 1000 * 5);
+	setTimeout(gamePlay, 1000 * 5);
+}
+
+function clearBoard(){
+	questionDiv.innerHTML = '';
+	optionsDiv.innerHTML = '';
+	correctAnswer.innerHTML = ''
 }
 
 function gameOver(){
@@ -95,10 +112,4 @@ function gameOver(){
 	console.log('counter, ' + counter);
 	console.log(questionBank);
 
-}
-
-function clearBoard(){
-	questionDiv.innerHTML = '';
-	optionsDiv.innerHTML = '';
-	correctAnswer.innerHTML = ''
 }
