@@ -18,4 +18,5 @@ To enforce foundational knowledge of plain, front-end JavaScript and understand 
 - [x] Reset game without reloading URL
 - [x] Create buttons on answer options
 - [ ] Add gifs to answer display
-- [x] Keep track of correctly and incorrectly answered questions
+- [ ] Keep track of correctly and incorrectly answered questions
+- [ ] Allow only one click on buttons
