@@ -21,7 +21,8 @@ var questionBank =[
 let count = 15,
 	trivia = 3,
 	correct = 0,
-	wrong = 0;
+	wrong = 0,
+	randomQs = [];
 
 //HTML divs
 questionDiv = document.getElementById('questionDiv');
@@ -58,7 +59,9 @@ function gamePlay(){
 
 function displayQuestion(){
 	//use the fisher-yates protoype function here
-	let randomQs = questionBank.shuffle().splice(0,1);
+	let questArr = questionBank.filter(newBank => (newBank));
+	let randomQs = questArr.shuffle().splice(0,1);
+
 		q = randomQs[0].question,
 		options = randomQs[0].options,
 		answerIndex = randomQs[0].answer,
@@ -87,10 +90,12 @@ function checkAnswer(){
 			if(buttonId == answerIndex){
 				console.log('correct');
 				correct++;
+				correctAnswer.innerHTML = `Good job! The correct answer is: ${answer}`
 				reset();
 			}else{
 				console.log('wrong');
 				wrong++;
+				correctAnswer.innerHTML = `Wrong. The correct answer is: ${answer}`
 				reset();
 			}
 		})
@@ -127,7 +132,7 @@ function gameOver(){
 	clearBoard();
 	replay.addEventListener('click', function(){
 		trivia = 3;
-		displayQuestion();
+		gamePlay();
 	});
 	console.log(wrong);
 	console.log(correct);
